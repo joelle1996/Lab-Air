@@ -1,0 +1,26 @@
+<section *ngIf="ProdBestSeller">
+
+    <h3>Best-seller</h3>
+
+
+
+    <nav>
+
+
+
+
+        <ul *ngFor="let p of ProdBestSeller">
+
+            <li [routerLink]="['/Dettaglio',p.id]"><img [src]="p.immagine" alt=""></li>
+            <li>{{p.nome}}</li>
+            <li>{{p.categoria}}</li>
+            <li>{{p.prezzo | currency: 'EUR'}}</li>
+
+
+        </ul>
+
+
+
+    </nav>
+
+</section>

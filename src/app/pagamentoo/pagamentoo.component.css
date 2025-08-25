@@ -1,0 +1,182 @@
+/*////////////// STRUTTURA GENERALE //////////// */
+
+
+h3 {
+    margin: 30px 0px;
+}
+
+
+section:first-of-type {
+
+    margin-bottom: 50px;
+}
+
+
+#img-descrizione #img {
+    width: 20%;
+    max-width: 80px;
+}
+
+
+
+#img-descrizione {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 35px;
+}
+
+#img-descrizione div:last-of-type p {
+    font-size: 0.7em;
+    margin: 0px;
+    color: rgb(89, 89, 89);
+}
+
+
+
+#img-descrizione div:last-of-type p:first-of-type {
+    color: black;
+    font-size: 0.9em;
+}
+
+ul nav li {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8em;
+}
+
+
+
+
+/* /////// STRUTTURA FORM E BOTTONE FORM //////////7 */
+
+form div {
+    text-align: center;
+    padding: 10px;
+}
+
+form div input {
+    width: 100%;
+    height: 45px;
+    border-radius: 10px;
+    border: 1px solid rgb(178, 178, 178);
+}
+
+
+.disabilita-button {
+    border-radius: 16px;
+    background-color: rgb(222, 222, 222);
+    border: none;
+    font-size: 0.7em;
+    width: 80%;
+    height: 40px;
+}
+
+.abilita-button {
+    background-color: black;
+    color: white;
+    border: none;
+    font-size: 0.7em;
+    width: 80%;
+    height: 40px;
+    border-radius: 16px;
+}
+
+.error {
+    color: red;
+    font-size: 0.7em;
+    display: block;
+    text-align: left;
+    width: 90%;
+}
+
+#nazione {
+    color: rgb(194, 194, 194);
+    border: 1px solid rgb(220, 220, 220);
+}
+
+
+
+
+
+@media screen and (min-width:600px) {
+
+    form {
+        text-align: center;
+    }
+
+    section:last-of-type div:nth-child(1),
+    section:last-of-type div:nth-child(2),
+    .DivForm {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+
+    }
+
+
+    form button {
+        width: 30%;
+        display: inline-block;
+
+
+    }
+
+    form>div:last-child {
+        text-align: end;
+        margin-top: 20px;
+
+    }
+
+}
+
+@media screen and (min-width:800px) {
+    #container {
+
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        grid-template-areas:
+            "section1 section2"
+            "section1 section3";
+
+        gap: 0px 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+
+    #container section:last-of-type {
+        grid-area: section1;
+        margin-top: 50px;
+    }
+
+
+
+    #container section:nth-child(2) {
+        grid-area: section2;
+        margin-top: 50px;
+    }
+
+    #container section:first-of-type {
+
+        grid-area: section3;
+
+
+    }
+
+
+    section:first-of-type h3 {
+
+        display: none;
+
+
+    }
+
+    #container section:last-of-type h3,
+    #container section:nth-child(2) h3 {
+
+        margin-top: 0;
+    }
+
+
+
+}

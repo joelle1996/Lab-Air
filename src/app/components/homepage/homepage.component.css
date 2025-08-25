@@ -1,0 +1,362 @@
+/* REGOLE STRUTTURALI GENERALI */
+
+video {
+    object-fit: cover;
+    width: 100%;
+    display: block;
+    height: auto;
+}
+
+img {
+    width: 100%;
+    height: auto;
+
+}
+
+#container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+main #container ul {
+    margin: 0;
+}
+
+main #container section h3 {
+    margin: 5px;
+}
+
+main #container section {
+    margin-bottom: 30px;
+    overflow: hidden
+}
+
+main #container section div:first-of-type {
+    text-align: end;
+}
+
+
+main #container section.containerCarosello {
+
+
+    width: 100%;
+}
+
+
+.containerCarosello img {
+    object-fit: cover;
+    display: block;
+
+}
+
+
+main #container section div:last-of-type {
+    white-space: nowrap;
+}
+
+main #container section ul {
+    transition: 0.7s;
+
+}
+
+footer {
+    text-align: center;
+}
+
+footer h4 {
+    font-size: 1.4em;
+}
+
+
+
+/* IMMAGINE JUST DO IT E BOTTONE ACQUISTA ORA */
+
+main>section:first-of-type div:last-of-type {
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+    max-width: 1200px;
+}
+
+main>section:first-of-type div:last-of-type button {
+    color: white;
+    background-color: black;
+    width: 120px;
+    height: 35px;
+    border-radius: 18px;
+    border: none;
+    white-space: nowrap;
+    cursor: pointer;
+    margin-top: 20px;
+
+}
+
+
+/* BOTTONI PER SCORRERE LE IMMAGINI */
+
+#container section div:first-of-type button {
+    display: inline-block;
+    border-radius: 18px;
+    width: 40px;
+    height: 35px;
+    border: none;
+    margin: 2px;
+    background-color: rgb(226, 226, 226);
+
+
+}
+
+
+/* REGOLE CAROSELLO IMMAGINI */
+.containerCarosello ul {
+    margin: 5px;
+    transition: transform 0.5s ease-in-out;
+    display: flex;
+}
+
+
+
+main #container .containerCarosello ul li {
+    padding: 5px;
+    min-width: 100%;
+}
+
+
+/* BOTTONE CAROSELLI CON NOME DEL PRODOTTO */
+
+main #container section ul li button {
+    cursor: pointer;
+    position: absolute;
+    z-index: 1;
+    bottom: 5%;
+    background-color: rgb(238, 238, 238);
+    width: auto;
+    border: none;
+    border-radius: 14px;
+    padding: 0px 10px;
+}
+
+
+
+
+main #container section:last-of-type {
+    margin: 50px 0;
+
+}
+
+main #container section:last-of-type div {
+    width: 80%;
+    margin: 0 auto;
+
+}
+
+
+
+footer nav div label {
+    font-size: 0.8em;
+    display: flex;
+    justify-content: space-between;
+}
+
+footer nav ul:not(.static) {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.6s ease;
+}
+
+footer nav ul.open {
+    max-height: 500px;
+}
+
+footer nav ul.close {
+    max-height: 0px;
+}
+
+.arrow {
+    transition: transform 0.3s ease;
+}
+
+.arrow.open {
+    transform: rotate(180deg);
+}
+
+footer nav ul li {
+    font-size: 0.8em;
+    color: rgb(111, 110, 110);
+    text-align: start;
+    padding: 0.2em;
+}
+
+.lingua {
+    margin-right: 10px;
+}
+
+
+
+footer div,
+footer p {
+    color: rgb(111, 110, 110);
+    text-align: start;
+    font-size: 0.8em;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (min-width:400px) {
+
+
+    video {
+        height: 35vh;
+
+    }
+
+    main>section:first-of-type div:last-of-type {
+        width: 40%;
+
+    }
+
+
+    main>section:first-of-type div:last-of-type button {
+
+        width: 140px;
+        height: 40px;
+        font-size: 0.9em;
+    }
+
+
+
+    main #container section ul button {
+
+        font-size: 0.8em;
+        height: 35px;
+    }
+
+    main #container .containerCarosello ul li {
+
+        min-width: 80%;
+
+    }
+
+
+
+
+
+}
+
+
+@media screen and (min-width:800px) {
+
+    video {
+        height: 40vh;
+
+    }
+
+    main>section:first-of-type div:last-of-type {
+        width: 30%;
+
+    }
+
+    main #container section ul li button {
+        font-size: 0.8em;
+        padding: 0px 10px;
+    }
+
+    main #container .containerCarosello ul li {
+
+        min-width: 33.33%;
+    }
+
+
+
+    main #container section:last-of-type {
+        margin: 100px 0;
+
+    }
+
+    main #container section:last-of-type div {
+        width: 60%;
+        margin: 0 auto;
+
+    }
+
+    footer {
+        font-size: 1em;
+        padding: 2em 4em;
+    }
+
+    footer nav {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 2em;
+    }
+
+    footer nav div {
+        display: none;
+
+    }
+
+    footer nav ul {
+        max-height: none !important;
+        overflow: visible !important;
+        display: block;
+    }
+
+    footer nav ul li {
+        padding: 0.3em 0;
+        text-align: left;
+    }
+
+    .arrow {
+        display: none;
+
+    }
+}
+
+
+
+
+@media screen and (min-width:1200px) {
+
+
+    video {
+        height: 50vh;
+
+    }
+
+    main>section:first-of-type div:last-of-type {
+        width: 25%;
+
+    }
+
+
+    main #container section ul li button {
+        font-size: 1.3em;
+
+    }
+
+
+    main #container section:last-of-type {
+        margin: 100px 0px;
+
+    }
+
+    main #container section:last-of-type div {
+        width: 40%;
+        margin: 0 auto;
+
+    }
+
+}

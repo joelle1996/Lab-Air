@@ -1,0 +1,341 @@
+<div id="container">
+
+
+
+    <section>
+
+
+
+        <h3>Nel carrello</h3>
+
+        <!-- //////////// RIEPILOGO PRODOTTO ///////////////// -->
+
+        <p>Arriva entro il giorno 28 ott</p>
+
+        <ng-container *ngFor="let p of RiepilogoProd">
+
+
+
+
+            <div id="img-descrizione">
+
+
+
+
+
+                <div id="img"><img [src]="p.immagine" alt=""></div>
+
+
+
+
+
+                <div>
+                    <p>{{p.nome}}</p>
+                    <p>{{p.categoria}}</p>
+                    <p>Taglia: {{p.taglia}}</p>
+                    <p>Colore: {{p.colore}}</p>
+                    <p>Quantità: {{p.quantita}}</p>
+                    <p>{{p.prezzo | currency: 'EUR'}}</p>
+                </div>
+
+
+
+
+
+
+            </div>
+
+
+
+
+
+        </ng-container>
+
+    </section>
+
+
+
+    <!-- //////////// RIEPILOGO PREZZO TOTALE ///////////////// -->
+    <section>
+
+        <div>
+            <h3>Nel carrello</h3>
+        </div>
+
+        <ul>
+            <nav>
+                <li>Subtotale <span>{{TotalePrezzo | currency: 'EUR'}}</span></li>
+                <li>Costi di spedizione stimati <span>0</span></li>
+                <li>totale <span>{{TotalePrezzo | currency: 'EUR'}}</span>
+            </nav>
+        </ul>
+
+
+    </section>
+
+
+    <section>
+
+        <h3>Opzioni di consegna</h3>
+
+
+
+        <!--//////////////  FORM  ////////////////// -->
+
+        <form [formGroup]="formConsegna">
+
+            <!-- ///// NOME /////// -->
+            <div>
+
+                <label for="nome"></label>
+                <input type="text" id="nome" formControlName="nome" placeholder="nome*">
+
+                <ng-container>
+
+                    <span class="error"
+                        *ngIf="formConsegna.get('nome')?.errors?.['required'] && formConsegna.get('nome')?.touched">Inserisci
+                        il tuo nome</span>
+
+                    <span class="error"
+                        *ngIf="formConsegna.get('nome')?.errors?.['minlength'] && formConsegna.get('nome')?.dirty && !formConsegna.get('nome')?.errors?.['pattern']">Il
+                        testo inserito è troppo
+                        breve,Inserisci un testo piu lungo</span>
+
+                    <span class="error" *ngIf="formConsegna.get('nome')?.errors?.['maxlength']">Il testo inserito è
+                        troppo
+                        lungo,Inserisci un testo piu breve</span>
+
+
+
+                    <span class="error" *ngIf="formConsegna.get('nome')?.errors?.['pattern'] ">
+
+                        caratteri non consentiti
+                    </span>
+
+
+                </ng-container>
+
+            </div>
+
+            <!-- //////////// COGNOME ///////////////// -->
+            <div>
+
+                <label for="cognome"></label>
+                <input type="text" id="cognome" formControlName="cognome" placeholder="cognome*">
+
+                <ng-container>
+
+                    <span class="error"
+                        *ngIf="formConsegna.get('cognome')?.errors?.['required'] && formConsegna.get('cognome')?.touched">Inserisci
+                        il tuo cognome</span>
+
+                    <span class="error"
+                        *ngIf="formConsegna.get('cognome')?.errors?.['minlength'] && formConsegna.get('cognome')?.dirty && !formConsegna.get('cognome')?.errors?.['pattern']">Il
+                        testo inserito è troppo
+                        breve,Inserisci un testo piu lungo</span>
+
+                    <span class="error" *ngIf="formConsegna.get('cognome')?.errors?.['maxlength']">Il testo inserito è
+                        troppo
+                        lungo,Inserisci un testo piu breve
+                    </span>
+
+
+                    <span class="error" *ngIf="formConsegna.get('cognome')?.errors?.['pattern'] ">
+
+                        caratteri non consentiti
+                    </span>
+
+
+
+
+                </ng-container>
+
+
+
+
+
+
+            </div>
+
+
+
+
+            <!-- //////////// INDIRIZZO ///////////////// -->
+            <div>
+
+                <label for="indirizzo"></label>
+
+                <input type="text" id="indirizzo" formControlName="indirizzo" placeholder="indirizzo*">
+
+                <ng-container>
+
+                    <span class="error"
+                        *ngIf="formConsegna.get('indirizzo')?.errors?.['required'] && formConsegna.get('indirizzo')?.touched">Inserisci
+                        il tuo indirizzo</span>
+
+                    <span class="error"
+                        *ngIf="formConsegna.get('indirizzo')?.errors?.['minlength'] && formConsegna.get('indirizzo')?.dirty">Il
+                        testo inserito è troppo
+                        breve,Inserisci un testo piu lungo
+                    </span>
+
+                    <span class="error" *ngIf="formConsegna.get('indirizzo')?.errors?.['maxlength']">Il testo inserito è
+                        troppo
+                        lungo,Inserisci un testo piu breve</span>
+
+                </ng-container>
+
+
+
+            </div>
+
+
+
+            <!-- //////////// CAP ///////////////// -->
+
+            <div *ngIf="formConsegna.get('indirizzo')?.valid">
+
+
+                <div>
+                    <label for="cap"></label>
+                    <input type="text" id="cap" formControlName="cap" placeholder="cap*">
+
+                    <span class="error"
+                        *ngIf="formConsegna.get('cap')?.errors?.['required'] && formConsegna.get('cap')?.touched">Inserisci
+                        il tuo cap
+                    </span>
+
+
+                    <span class="error"
+                        *ngIf=" formConsegna.get('cap')?.errors?.['minlength'] || formConsegna.get('cap')?.errors?.['maxlength'] || formConsegna.get('cap')?.errors?.['pattern']">
+
+                        Inserisci un cap valido
+
+                    </span>
+
+
+
+                </div>
+
+
+                <!-- //////////// CITTA ///////////////// -->
+                <div>
+
+                    <label for="citta"></label>
+                    <input type="text" id="citta" formControlName="citta" placeholder="città*">
+
+                    <span class="error"
+                        *ngIf="formConsegna.get('citta')?.errors?.['required'] && formConsegna.get('citta')?.touched">Inserisci
+                        la tua città
+                    </span>
+
+                    <span class="error"
+                        *ngIf="formConsegna.get('citta')?.errors?.['minlength'] && !formConsegna.get('citta')?.errors?.['pattern']">Inserisci
+                        almeno 2 caratteri
+                    </span>
+
+                    <span class="error" *ngIf="formConsegna.get('citta')?.errors?.['maxlength']">
+                        Il testo inserito è
+                        troppo
+                        lungo,Inserisci un testo piu breve
+                    </span>
+
+                    <span class="error" *ngIf="formConsegna.get('citta')?.errors?.['pattern'] ">
+
+                        caratteri non consentiti
+                    </span>
+
+
+                </div>
+
+
+
+                <!-- //////////// NAZIONE ///////////////// -->
+                <div>
+
+                    <label for="nazione"></label>
+                    <input id="nazione" type="text" id="nazione" formControlName="nazione">
+                </div>
+
+
+
+
+
+            </div>
+
+
+
+
+
+
+
+            <!-- //////////// EMAIL ///////////////// -->
+
+            <div class="DivForm">
+
+                <label for="email"></label>
+                <input type="text" id="email" formControlName="email" placeholder="e-mail*">
+
+                <span class="error"
+                    *ngIf="formConsegna.get('email')?.errors?.['required'] && formConsegna.get('email')?.touched">Inserisci
+                    la tua E-mail</span>
+
+                <span class="error"
+                    *ngIf="formConsegna.get('email')?.errors?.['pattern'] && formConsegna.get('email')?.touched">Inserisci
+                    una E-mail valida</span>
+
+
+
+
+            </div>
+
+
+
+            <!-- //////////// TELEFONO ///////////////// -->
+            <div class="DivForm">
+
+                <label for="tel"></label>
+                <input type="text" id="tel" formControlName="tel" placeholder="numero di telefono*">
+
+                <span class="error"
+                    *ngIf="formConsegna.get('tel')?.errors?.['required'] && formConsegna.get('tel')?.touched">
+                    Questo campo
+                    obbligatorio
+                </span>
+
+                <span class="error"
+                    *ngIf="formConsegna.get('tel')?.errors?.['pattern'] && formConsegna.get('tel')?.touched ">
+                    Inserire un numero valido
+                </span>
+
+                <span class="error" *ngIf=" formConsegna.get('tel')?.errors?.['maxlength'] ">
+
+                    il numero inserito è troppo lungo,inserire uno più breve
+                </span>
+
+
+
+                <span class="error"
+                    *ngIf="formConsegna.get('tel')?.errors?.['minlength'] && !formConsegna.get('tel')?.errors?.['pattern']">
+
+                    il numero inserito è troppo breve,inserire uno più lungo
+
+                </span>
+            </div>
+
+            <!-- //////////// BOTTONE DI INVIO DATI ///////////////// -->
+            <div>
+                <button (click)="inviaDati()" type="button" [disabled]="!formConsegna.valid "
+                    [ngClass]="{'abilita-button': formConsegna.valid, 'disabilita-button': !formConsegna.valid}"
+                    routerLink="/metodo-pagamento">
+                    Salva e continua
+                </button>
+            </div>
+
+        </form>
+
+
+
+    </section>
+
+</div>

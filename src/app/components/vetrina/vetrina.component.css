@@ -1,0 +1,158 @@
+/*/////////////   REGOLE BASE   /////////////////*/
+
+#container {
+    max-width: 1550px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+
+h3 {
+    margin: 50px 10px;
+}
+
+img:not(#Consigliati ul li img) {
+    width: 100%;
+    object-fit: cover;
+    height: 15vh;
+}
+
+#Consigliati {
+    white-space: nowrap;
+
+}
+
+#Consigliati ul li img {
+
+    width: 100%;
+    object-fit: cover;
+}
+
+
+
+/*/////// STILI BOTTONE CAROSELLO E CAROSELLO /////// */
+
+#BtnDiv {
+    text-align: end;
+    margin-bottom: 20px;
+}
+
+#BtnDiv button {
+    border-radius: 16px;
+    border: none;
+    margin: 2px;
+    height: 35px;
+    width: 40px;
+
+}
+
+#Consigliati ul {
+
+    width: 80%;
+    padding: 5px !important;
+    display: inline-block;
+    transition: 0.7s;
+    margin: 5px;
+
+}
+
+#Consigliati ul li:nth-of-type(3) {
+    color: rgb(179, 179, 179);
+}
+
+
+
+
+/*//////////// STILE PRODOTTO  /////////////////*/
+
+#scarpa p:nth-child(3) {
+    font-size: 1em !important;
+    color: rgb(163, 162, 162);
+}
+
+
+#scarpa {
+    font-size: 0.8em;
+    width: 50%;
+    display: inline-block;
+    vertical-align: top;
+    padding: 5px;
+}
+
+#scarpa p {
+    margin-bottom: 0px;
+
+}
+
+
+
+/* /////// MEDIA QUERIES ////////// */
+
+
+
+
+
+@media screen and (min-width:600px) {
+
+
+    span {
+        font-size: 1.3em;
+    }
+
+
+
+    img:not(#Consigliati ul li img) {
+        height: 18vh;
+
+    }
+
+    #scarpa {
+        font-size: 1em;
+        width: 33%;
+    }
+
+    #scarpa p:nth-child(3) {
+        font-size: 1.2em !important;
+
+    }
+
+
+}
+
+@media screen and (min-width:1000px) {
+
+
+    h3 {
+        font-size: 1.7em;
+    }
+
+    span {
+        font-size: 1.5em;
+    }
+
+
+
+    img:not(#Consigliati ul li img) {
+        height: 30vh;
+
+    }
+
+    #Consigliati ul {
+
+        width: 33.33%;
+
+    }
+
+
+}
+
+@media screen and (min-width:1400px) {
+
+
+    img:not(#Consigliati ul li img) {
+        height: 40vh;
+
+    }
+
+
+}

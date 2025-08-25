@@ -1,0 +1,80 @@
+<div id="container">
+
+
+
+    <h3 *ngIf="ProdottiFiltrati.length > 0">Risultati per "{{InputUtente}}"</h3>
+
+
+
+
+
+
+    <!-- ////  MESSAGGIO DI ERRORE NEL CASO I PRODOTTI NON VENISSERO TROVATI-->
+
+    <div *ngIf="InputUtente.length >0 && ProdottiFiltrati.length==0">
+
+        <h3 *ngIf="InputUtente.length<30">Impossibile trovare risultati per
+            "{{InputUtente}}." </h3>
+
+        <span *ngIf="InputUtente.length>30">Purtroppo non siamo riusciti a trovare la pagina che cerchi.</span>
+
+
+
+
+
+        <!-- ///// CAROSELLO IMMAGINI CON PRODOTTI CONSIGLIATI //////// -->
+
+        <p>Potrebbero anche interesssarti questi articoli amatissimi</p>
+
+        <div id="BtnDiv">
+            <button type="button" (click)="Precedente()" [disabled]="SlideCorrente == Prodotti.length -4">&lt;</button>
+
+            <button type="button" (click)="Successiva()"
+                [disabled]="SlideCorrente == Prodotti.length -1  || LarghezzaSchermo>=1000 && SlideCorrente==Prodotti.length-3 ">&gt;</button>
+        </div>
+
+
+        <div id="Consigliati">
+
+            <ul [style.transform]="'translateX(' + (-SlideCorrente * (LarghezzaSchermo < 1000 ? 92:100)) + '%)'"
+                *ngFor="let p of Prodotti">
+
+                <li [routerLink]="['/Dettaglio',p.id]">
+                    <img [src]="p.immagine" alt="">
+                </li>
+
+                <li>{{p.nome}}</li>
+                <li>{{p.categoria}}</li>
+                <li>{{p.prezzo | currency:'EUR'}}</li>
+            </ul>
+
+        </div>
+
+
+
+    </div>
+
+
+
+    <!-- ///// PRODOTTI CON IMMAGINE,TIPOLOGIA E PREZZO ////// -->
+
+
+    <ng-container *ngIf="ProdottiFiltrati">
+
+
+
+        <div *ngFor="let pdf of ProdottiFiltrati" id="scarpa">
+
+            <div [routerLink]="['/Dettaglio',pdf.id]"><img [src]="pdf.immagine" alt=""></div>
+            <p>{{pdf.nome}}</p>
+            <p>{{pdf.categoria}}</p>
+            <p>{{pdf.prezzo |currency:'EUR'}}</p>
+
+
+        </div>
+
+
+
+    </ng-container>
+
+</div>

@@ -1,0 +1,341 @@
+/*///////  COLORE  /////////// */
+
+
+button.disable {
+    color: grey !important;
+    background-color: rgb(204, 204, 204) !important;
+    cursor: auto;
+}
+
+
+
+#member p {
+    color: black;
+
+}
+
+
+#info p:not(p:first-of-type) {
+
+    color: rgba(135, 135, 135, 0.738);
+}
+
+#pgmBtn button:first-of-type {
+    background-color: black;
+    color: white;
+}
+
+
+/* ///////  REGOLE STRUTTURALI GENERALI //////// */
+
+
+#modal-content i,
+#pgmBtn i {
+    font-size: 1.3em;
+}
+
+img {
+    width: 100%;
+}
+
+section {
+    margin-top: 20px;
+}
+
+section:nth-child(2) div {
+    margin-top: 30px;
+}
+
+#big-container section:first-of-type h3:last-child {
+    display: none;
+}
+
+#container {
+    display: flex;
+    gap: 10px;
+}
+
+
+
+#member.NoMargin {
+    margin: 0;
+
+}
+
+#info p {
+    margin: 5px 0px;
+}
+
+
+
+#icone,
+select {
+    margin: 10px 0px 20px 0px;
+}
+
+select {
+    margin-right: 12px
+}
+
+#icone p {
+    display: inline-block;
+}
+
+
+
+
+
+
+
+/* ///// STRUTTURA MODAL ////// */
+
+#modal {
+    position: fixed;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+    transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
+    visibility: hidden;
+
+}
+
+#modal.show {
+    opacity: 1;
+    visibility: visible;
+
+}
+
+
+
+#modal div {
+    text-align: center;
+    padding: 0.5em;
+}
+
+
+
+#modal-content {
+    background-color: white;
+    width: 100%;
+    transform: scale(0.95);
+    transition: opacity 0.1s ease-in-out, transform 0.1s ease-in-out;
+    opacity: 0;
+}
+
+
+
+#modal.show #modal-content {
+    opacity: 1;
+    transform: scale(1);
+}
+
+#modal #modal-content button {
+
+
+    background-color: black;
+    color: white;
+    width: 90%;
+    font-size: 0.7em;
+    padding: 12px;
+    margin: 3px 0px;
+
+
+}
+
+
+#modal #modal-content button:last-of-type {
+
+    background-color: rgb(209, 209, 209);
+    color: black;
+    margin-bottom: 20px;
+
+}
+
+
+
+/* ///// STRUTTURA SECTION ////// */
+
+
+#Titolo {
+    text-align: center;
+    margin-top: 30px;
+}
+
+
+
+
+section:nth-child(2):not(#big-container section) {
+    text-align: center;
+    max-width: 1300px;
+
+}
+
+
+#member {
+    color: rgb(255, 104, 4);
+    font-size: 0.8em;
+    padding: 1em;
+    border: 1px solid rgb(212, 209, 209);
+    text-align: center;
+    margin: 30px 0px;
+}
+
+
+#container div:first-of-type:not(#icone) {
+    width: 50%;
+    max-width: 180px;
+}
+
+#container div:first-of-type p {
+    margin: 0;
+    font-size: 0.8em;
+    font-weight: bold;
+}
+
+
+
+#info {
+    font-size: 0.8em;
+    padding: 10px;
+
+}
+
+
+
+
+i:not(#modal-content i,
+    #pgmBtn i) {
+    font-size: 0.9em;
+    margin-left: 2px;
+    cursor: pointer;
+
+    border-radius: 100%;
+    padding: 5px;
+}
+
+#riepilogo {
+    font-size: 0.9em;
+    padding: 1em;
+}
+
+
+
+button {
+    border-radius: 16px;
+    border: none;
+}
+
+#pgmBtn {
+    text-align: center;
+}
+
+#pgmBtn button {
+    display: inline-block;
+    width: 90%;
+    font-size: 1em;
+    padding: 10px;
+    margin: 5px 0px;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (min-width:500px) {
+
+
+    #info {
+        font-size: 0.9em;
+        padding: 10px;
+    }
+
+}
+
+@media screen and (min-width:800px) {
+
+    #modal-content {
+        width: 50%;
+        max-width: 700px;
+        margin: 0 auto;
+        border-radius: 6px;
+    }
+
+
+
+
+    #Titolo {
+        display: none;
+    }
+
+
+    #big-container section:first-of-type h3 {
+        display: inline-block;
+    }
+
+    #info {
+        font-size: 1em;
+        padding: 10px;
+
+    }
+
+    #big-container {
+        max-width: 1300px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+            "section1 section3"
+            "section2 section3"
+
+    }
+
+    #big-container section:first-of-type {
+        grid-area: section1;
+        margin-top: 0px;
+    }
+
+
+    #big-container section:nth-child(2) {
+
+        grid-area: section2;
+
+    }
+
+
+    #riepilogo {
+
+        grid-area: section3;
+    }
+
+
+
+    #big-container section:first-of-type h3:last-child {
+        display: inline-block;
+        margin-left: 20px;
+    }
+
+    #container {
+        margin-top: 0px;
+    }
+
+
+
+
+}

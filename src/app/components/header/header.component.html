@@ -1,0 +1,92 @@
+<header>
+
+    <div>
+        <!--Loghi Jordan e converse-->
+        <div>
+            <span></span>
+            <span></span>
+        </div>
+        <!--/////////////////////////////// -->
+
+
+        <nav>
+            <ul>
+                <li>Trova un negozio</li>
+                <li>Aiuto</li>
+                <li>Unisciti a noi</li>
+                <li>Accedi</li>
+            </ul>
+        </nav>
+    </div>
+
+
+
+
+
+
+    <div>
+        <div>
+            <span id="nikeLogo" routerLink="/"></span>
+        </div>
+
+
+
+
+        <div id="SearchAndIcons">
+
+            <i (click)="SearchBar()" class="fas fa-search"> </i>
+
+
+            <!-- Barra di ricerca e Bottone'Cerca' -->
+
+            <form *ngIf="SearchBarActive">
+
+
+
+                <div class="input-group">
+                    <input [formControl]="ValidatoreRicerca" id="cerca" type="search" class="form-control"
+                        placeholder="Cerca.." aria-label="Search" autocomplete="off">
+                </div>
+
+
+
+
+                <button [ngClass]="{'active':ValidatoreRicerca.value?.length!==0}"
+                    [disabled]="ValidatoreRicerca.value?.length==0" routerLink="/vetrina" (click)="Ricerca()"
+                    type="button">Cerca
+                </button>
+
+            </form>
+
+            <!-- Icone carrello e preferiti  -->
+
+            <i routerLink="/Carrello" class="bi bi-cart"></i>
+
+            <i class="far fa-heart"></i>
+
+
+        </div>
+    </div>
+
+
+
+
+
+    <nav>
+
+        <ul>
+            <li>Uomo</li>
+            <li>Donna</li>
+            <li routerLink="/NuoviArrivi">Nuovi arrivi</li>
+            <li routerLink="/best-seller">Best Seller</li>
+        </ul>
+
+
+    </nav>
+
+
+
+
+
+
+</header>

@@ -1,1 +1,59 @@
 /* You can add global styles to this file, and also import other style files */
+@font-face {
+    font-family: 'bebaskai';
+    src: url('/font/webfontkit-20240716-184133/bebaskai-webfont.woff') format('woff'),
+        url('/public/font/webfontkit-20240716-184133/bebaskai-webfont.woff2') format('woff2');
+
+}
+
+
+
+* {
+    box-sizing: border-box;
+    font-family: 'bebaskai';
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+    font-size: 0.8em;
+}
+
+body {
+    font-size: 1.2rem !important;
+    margin: 0 auto;
+    padding: 5px;
+}
+
+button {
+    cursor: pointer;
+}
+
+#container {
+    padding: 0.5em;
+}
+
+ul {
+    list-style: none;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+
+.disable-interaction {
+    pointer-events: none;
+
+}
+
+
+#modal {
+    pointer-events: auto;
+
+}

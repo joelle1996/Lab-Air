@@ -1,0 +1,225 @@
+<section *ngIf="!VerificaOrdine">
+
+    <h3>Pagamento</h3>
+
+    <div>
+
+        <p>Paese/regione di fatturazione</p>
+        <p><span> Italia </span> <b><u>Modifica</u></b></p>
+    </div>
+
+
+
+    <p>Possiedi una gift card o codice promozionale?</p>
+
+
+
+
+
+    <p>
+        Seleziona metodo di pagamento
+    <p>
+
+
+        <!-- FORM METODO DI PAGAMENTO CARTA DI CREDITO -->
+    <form>
+
+
+
+        <div>
+            <input type="radio" value="carta" name="metodo" id="carta" [(ngModel)]="metodo">
+            <label for="carta">Carta di credito o debito</label>
+
+        </div>
+
+
+        <div>
+
+            <input type="radio" value="paypal" name="metodo" id="paypal" [(ngModel)]="metodo">
+            <label for="paypal"><i class="pf pf-paypal"></i>
+            </label>
+
+
+        </div>
+
+
+        <div>
+            <input type="radio" value="gpay" name="metodo" id="gpay" [(ngModel)]="metodo">
+            <label for="gpay"><i class="fab fa-google-pay"></i>
+            </label>
+
+        </div>
+
+
+    </form>
+
+
+
+
+
+
+
+    <!-- FORM PER PAGAMENTO CON CARTA DI CREDITO -->
+
+    <form [formGroup]="form" *ngIf="metodo=='carta'" id="AggiungiCarta">
+
+
+        <div id="FormContainer">
+
+
+            <p>Aggiungi carta</p>
+
+
+            <!-- NUMERO  CARTA-->
+            <div>
+                <label for="numero"></label>
+                <input type="text" name="numero" maxlength="16" id="numero" placeholder="Numero carta"
+                    formControlName="numero">
+
+                <span class="error" *ngIf="form.get('numero')?.errors?.['required'] && form.get('numero')?.touched ">
+                    Inserisci il numero della tua carta
+                </span>
+
+
+                <span class="error" *ngIf="form.get('numero')?.errors?.['pattern'] ">
+                    Inserisci un numero di carta valido
+                </span>
+            </div>
+
+
+            <!-- DATA DI SCADENZA CARTA -->
+            <div>
+
+                <label for="data"></label>
+                <input type="date" name="data" id="data" placeholder="data" formControlName="data">
+
+
+                <span class="error" *ngIf="form.get('data')?.errors?.['required']  && form.get('data')?.touched">
+                    Inserisci la data
+                </span>
+
+            </div>
+
+
+            <!-- CVV CARTA -->
+            <div>
+                <label for="cvv"></label>
+                <input type="text" name="cvv" id="cvv" placeholder="CVV" formControlName="cvv" maxlength="3">
+
+                <span class="error" *ngIf="form.get('cvv')?.errors?.['required']  && form.get('cvv')?.touched">
+                    Inserisci il CVV
+                </span>
+
+                <span class="error"
+                    *ngIf="form.get('cvv')?.errors?.['pattern'] || form.get('cvv')?.errors?.['minlength']">
+                    Inserisci un CVV valido
+                </span>
+
+            </div>
+
+
+        </div>
+
+
+
+
+        <!-- RIEPILOGO DATI DEL FORM DI 'OPZIONI CONSEGNA' E TOTALE DEL PREZZO -->
+        <ul>
+            <li>Indirizzo di spedizione</li>
+            <li>{{DatiUtente?.nome}} {{DatiUtente?.cognome}}</li>
+            <li>{{DatiUtente?.indirizzo}},</li>
+            <li>{{DatiUtente?.cap}},{{DatiUtente?.citta}}</li>
+
+            <li><b>totale</b></li>
+            <li>{{totale | currency:'EUR'}}</li>
+
+
+        </ul>
+
+
+
+        <button [ngClass]=" {'disable':!form.valid}" (click)="Verifica()" [disabled]="!form.valid">Passa alla verifica
+            dell'ordine</button>
+
+
+    </form>
+
+
+
+
+
+
+
+
+
+
+    <!--VISUALIZZAZIONE METODO DI PAGAMENTO PAYPAL -->
+
+    <div *ngIf="metodo=='paypal'" id="paypal">
+
+
+        <p>Dopo aver riconfermato L'ordine sarai reindirizzato al sito di PayPal.</p>
+
+
+
+        <button (click)="Verifica()">Passa alla verifica dell'ordine</button>
+
+
+    </div>
+
+
+
+    <!--VISUALIZZAZIONE METODO DI PAGAMENTO GOOGLE PAY -->
+
+    <div *ngIf="metodo=='gpay'" id="gpay">
+
+
+
+
+
+
+        <button (click)="Verifica()">Passa alla verifica dell'ordine</button>
+
+
+    </div>
+
+
+
+
+</section>
+
+
+
+
+
+<!--//////////// VERIFICA DELL ORDINE ///////// -->
+<section>
+
+
+    <hr>
+    <div id="VerificaOrdine">
+        <h3>Verifica ordine</h3>
+
+        <div *ngIf="VerificaOrdine">
+
+            <p>
+                Facendo clic sul pulsante "Effettua pagamento", confermi di aver letto, compreso e accettato i
+                <b><u>Condizioni
+                        d'uso, Condizioni di vendita</u></b> e <b><u>Informativa sui resi</u></b>, oltre ad aver letto
+                l'<b><u>Informativa sulla privacy</u></b> di
+                Nike.
+
+            </p>
+
+
+            <button routerLink="/thank-you">Effettua pagamento</button>
+
+
+        </div>
+
+    </div>
+    <hr>
+
+
+
+</section>

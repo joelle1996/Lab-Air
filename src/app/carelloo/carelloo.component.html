@@ -1,0 +1,205 @@
+<!-- MODAL E CONTENUTO DEL MODAL -->
+
+
+<section id="modal" [ngClass]="{'show':ModalOn}" (click)="ChiudiModal($event)">
+
+
+    <div id="modal-content" [ngClass]="{'show':ModalOn}" (click)="StopPropagation($event)">
+
+        <button type="button" (click)="ChiudiModal($event)" routerLink="/pagamentoo">Pagamento per utenti non
+            registrati</button>
+        <button>Pagamento per utenti registrati</button>
+        <button><i class="pf pf-paypal"></i></button>
+
+
+    </div>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="Titolo">
+    <h3>Carrello</h3>
+</div>
+
+
+
+
+
+
+
+<div id="big-container">
+
+
+
+    <section>
+        <div id="member">
+
+            <h3>Spedizione gratuita per i member</h3>
+
+            <p>Diventa member Nike e approfitta della spedizione rapida e gratuita. <u>Unisciti a noi</u> o
+                <u>accedi</u>
+            </p>
+
+
+        </div>
+
+        <h3 *ngIf="ProdottiCarrello.length!==0">Carrello</h3>
+
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <section>
+
+        <!-- MESSAGGIO CARRELLO VUOTO SE I PRODOTTI NON SONO PRESENTI -->
+
+        <div style="margin: 70px 0px;" *ngIf="ProdottiCarrello.length==0">
+            <h3 style="font-size: 1em;text-align: center;color: rgb(174, 171, 171);">Nel tuo carrello non sono presenti
+                articoli.
+            </h3>
+        </div>
+
+
+
+        <!-- CONTENUTO CARRELLO CON DATI SPECIFICI -->
+
+        <div id="container" *ngFor="let p of ProdottiCarrello">
+
+
+            <div>
+                <img [src]="p.immagine" alt="">
+
+
+
+                <!-- SELECT E ICONE CESTINO E PREFERITI  -->
+
+                <div id="icone">
+
+                    <p> Quantita: {{p.quantita}}
+
+                        <select [(ngModel)]="p.quantita" (change)="AggiornaQuantita(p)">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+
+
+                    </p>
+
+                    <i (click)="rimuoviProdotto(p)" class="bi bi-trash"></i>
+                    <i class="bi bi-heart"></i>
+                </div>
+
+
+
+
+                <p>Ritiro gratuito</p>
+                <p><u>Trova un negozio</u></p>
+
+                <hr>
+
+            </div>
+
+
+            <!-- INFORMAZIONI PRODOTTO -->
+
+            <div id="info">
+
+                <p><b>{{p.nome}}</b></p>
+
+                <p>{{p.categoria}}</p>
+                <p>Colore:{{p.colore}}</p>
+
+                <p>Taglia/Misura: <span>{{p.taglia}}</span></p>
+
+                <span><b>{{p.prezzo}}&euro;</b></span>
+
+
+
+            </div>
+
+
+
+        </div>
+
+
+
+        <h4> Preferiti</h4>
+        <p> Vuoi visualizzare i preferiti? <u>Unisciti a noi</u> o <u>accedi</u></p>
+
+
+        <hr>
+
+    </section>
+
+
+
+
+
+
+    <!-- RIEPILOGO TOTALE -->
+
+    <section id="riepilogo">
+
+        <h3>Riepilogo</h3>
+
+        <p>Hai un codice promozionale?</p>
+
+
+        <p><b>Subtotale: <span>{{ TotalePrezzo | currency: 'EUR' }}</span></b></p>
+
+
+        <p>Costi di spedizione e gestione previsti</p>
+        <span><b>gratis</b></span>
+
+
+
+        <hr>
+
+        <p><b>totale: {{ TotalePrezzo | currency: 'EUR' }}</b></p>
+
+        <hr>
+
+
+        <!-- BOTTONI PAGAMENTO -->
+
+        <div id="pgmBtn">
+            <button [ngClass]="{'disable':ProdottiCarrello.length==0}" [disabled]="ProdottiCarrello.length==0"
+                type="button" (click)="apriModal()">Vai al
+                pagamento</button>
+            <button [ngClass]="{'disable':ProdottiCarrello.length==0}"><i class="pf pf-paypal"></i></button>
+        </div>
+
+
+    </section>
+
+
+
+
+
+</div>

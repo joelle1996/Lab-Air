@@ -1,0 +1,174 @@
+<!-- ///////// MODAL PER LA NOTIFICA DELL'ULTIMO PRODOTTO AGGIUNTO NEL CARRELLO -->
+
+<section id="modal" (click)="ChiudiModal($event)" [ngClass]="{'show': CarrelloClick}">
+
+
+    <div id="modal-content" *ngIf="UltimoProdotto" (click)="StopPropagation($event)"
+        [ngClass]="{'show': CarrelloClick}">
+
+
+        <span (click)="ChiudiModal($event)">X</span>
+        <span *ngIf="EsaurimentoProd==false"><b>Aggiunto al carrello!</b></span>
+
+
+
+
+
+        <div id="img-p">
+
+            <ng-container *ngIf="EsaurimentoProd==false">
+
+                <div><img [src]="UltimoProdotto.immagine" alt=""></div>
+
+                <div>
+                    <p>{{UltimoProdotto.nome}}</p>
+                    <p>{{UltimoProdotto.categoria}}</p>
+                    <p>{{UltimoProdotto.colore}}</p>
+                    <p>Taglia/Misura:{{UltimoProdotto.taglia}}</p>
+                    <p>{{UltimoProdotto.prezzo| currency: 'EUR'}}</p>
+                </div>
+
+            </ng-container>
+
+
+            <span *ngIf="EsaurimentoProd==true" id="error">Hai raggiunto il limite di quantità consentito.
+                Rimuovi
+                un
+                articolo e riprova.
+            </span>
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+        <div id="NotificaBtn">
+            <button routerLink="/Carrello">Vai al carrello</button>
+            <button routerLink="/pagamentoo">Pagamento</button>
+        </div>
+
+    </div>
+
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+<section>
+
+    <nav *ngIf="prodotto" id="PrimaNav">
+
+
+        <ul>
+
+            <li>{{prodotto.nome}}</li>
+
+            <li>{{prodotto.categoria}}</li>
+            <li>{{prodotto.prezzo | currency: 'EUR'}}</li>
+
+        </ul>
+
+    </nav>
+
+    <span id="SpanImg"> <img [src]="prodotto?.immagine" alt=""></span>
+
+
+    <!-- ///// SELEZIONE DI TAGLIA E COLORE////// -->
+
+    <form #ds_form="ngForm">
+
+        <nav *ngIf="prodotto" id="secondaNav">
+
+            <ul>
+
+                <li>Colori disponibili:</li>
+
+
+
+
+                <li id="colori" *ngFor="let pcd of prodotto.colori_disponibili;let i=index">
+
+                    <input name="Colore" type="radio" [id]="'colore-'+ i" [(ngModel)]="coloreSelezionato" [value]="pcd">
+
+                    <label [for]="'colore-'+ i">
+                        {{pcd}}
+                    </label>
+                </li>
+
+                <li class="error" *ngIf="!coloreSelezionato && ds_form.submitted">Selezionare un colore</li>
+
+
+            </ul>
+
+        </nav>
+
+
+
+
+
+
+
+        <nav *ngIf="prodotto" id="terzaNav">
+            <ul>
+
+
+                <li><span>Seleziona la</span> taglia/misura:</li>
+
+
+                <li id="taglie" *ngFor="let t of prodotto.taglie_disponibili;let i=index">
+                    <input name="taglia" type="radio" [id]="'taglia-'+ i" [(ngModel)]="tagliaSelezionata" [value]="t">
+                    <label [for]="'taglia-' + i"> EU{{t}}</label>
+                </li>
+
+                <li class="error" *ngIf="!tagliaSelezionata && ds_form.submitted">Selezionare una taglia</li>
+            </ul>
+        </nav>
+
+
+
+
+
+        <div>
+
+            <button (click)="AggiungiCarrello()">Aggiungi al carrello</button>
+
+            <button>Aggiungi ai preferiti</button>
+
+
+
+
+
+
+
+
+        </div>
+
+
+
+        <div>
+            <p>{{prodotto?.descrizione}}</p>
+        </div>
+
+    </form>
+
+
+
+
+</section>

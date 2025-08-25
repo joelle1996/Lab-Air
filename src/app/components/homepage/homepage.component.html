@@ -1,0 +1,353 @@
+<main>
+
+
+
+
+    <section id="PrimaSetionMain">
+
+        <div>
+
+            <video autoplay muted loop>
+                <source src="/img/video.mp4" type="video/mp4">
+                Video non disponibile.
+            </video>
+
+
+
+        </div>
+
+
+        <hr>
+
+        <div>
+
+            <img src="/img/justDoIt.jpg" alt="">
+
+
+
+            <button routerLink="/TuttiProdotti">Acquista ora</button>
+
+        </div>
+
+        <hr>
+
+    </section>
+
+
+
+
+
+
+
+    <div id="container">
+
+        <!--  CAROSELLO IMMAGINI ICONE  -->
+
+        <section>
+
+            <h3>Acquista le nostre icone</h3>
+
+
+            <div>
+                <button (click)="Precedente(1)" [disabled]="slideCorrente==VetrinaHome.length -4">
+
+                    <i class="fas fa-chevron-left"></i>
+
+                </button>
+
+                <button class="SuccessivoBtn" (click)="Successiva(1)"
+                    [disabled]="slideCorrente==VetrinaHome.length -1  || LarghezzaSchermo>=800 && slideCorrente==VetrinaHome.length-3 || LarghezzaSchermo >=800 && slideCorrente>1 ">
+
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+
+
+            <!-- CAROSELLO IMMAGINI -->
+
+
+            <div class="containerCarosello">
+
+
+                <ul
+                    [style.transform]="'translateX(' + (-slideCorrente * (LarghezzaSchermo < 400? 100 :(LarghezzaSchermo < 800? 72 : 33)) )+ '%)'">
+
+                    <li *ngFor="let p of VetrinaHome; ">
+
+                        <div>
+                            <img [src]="p?.immagine">
+                        </div>
+
+                        <button [routerLink]="['Dettaglio',p.id]">{{p.nome}}</button>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </section>
+
+
+
+
+
+
+        <!--  CAROSELLO IMMAGINI SPORT  -->
+        <section>
+
+            <h3>Acquista per sport</h3>
+            <!-- BOTTONI CAROSELLO -->
+
+
+            <div>
+                <button (click)="Precedente(2)" [disabled]="slideCorrenteSport==ImmaginiSport.length -5">
+
+                    <i class="fas fa-chevron-left"></i>
+
+                </button>
+
+                <button class="SuccessivoBtn" (click)="Successiva(2)"
+                    [disabled]="slideCorrenteSport==ImmaginiSport.length -1 || LarghezzaSchermo>=800 && slideCorrenteSport==ImmaginiSport.length-3">
+
+                    <i class="fas fa-chevron-right"></i>
+
+                </button>
+            </div>
+
+            <!-- CAROSELLO IMMAGINI -->
+            <div class="containerCarosello">
+
+                <ul
+                    [style.transform]="'translateX(' + (-slideCorrenteSport *  (LarghezzaSchermo < 400? 100 :(LarghezzaSchermo < 800? 75 : 33.33)))+ '%)'">
+
+                    <li *ngFor="let i of ImmaginiSport">
+                        <div> <img [src]="i.immagine"></div>
+                        <button>{{i.nome}}</button>
+                    </li>
+
+                </ul>
+
+
+
+            </div>
+
+
+        </section>
+
+
+
+
+
+
+
+        <!--  CAROSELLO IMMAGINI SCOPRI DI PIU  -->
+        <section>
+
+            <h3>Scopri di più</h3>
+
+            <!-- BOTTONI CAROSELLO -->
+            <div>
+                <button (click)="Precedente(3)" [disabled]="SlideCorrenteScopri==ImmaginiScopri.length -4 ">
+
+                    <i class="fas fa-chevron-left"></i>
+
+                </button>
+
+                <button class="SuccessivoBtn" (click)="Successiva(3)"
+                    [disabled]="SlideCorrenteScopri==ImmaginiScopri.length -1 || LarghezzaSchermo >=800 && SlideCorrenteScopri==ImmaginiScopri.length-3 ">
+
+                    <i class="fas fa-chevron-right"></i>
+
+                </button>
+            </div>
+
+
+
+            <!-- CAROSELLO IMMAGINI -->
+            <div class="containerCarosello">
+
+                <ul
+                    [style.transform]="'translateX(' + (-SlideCorrenteScopri * (LarghezzaSchermo < 400? 100 :(LarghezzaSchermo < 800? 70 : 33))) + '%)'">
+
+
+
+
+                    <li *ngFor="let i of ImmaginiScopri">
+
+                        <div> <img [src]="i.immagine" alt=""></div>
+
+                        <button>{{i.nome}}</button>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+
+        </section>
+
+
+
+
+
+
+
+
+        <section>
+
+
+            <div>
+
+                <img src="/img/membership.avif" alt="">
+
+            </div>
+
+
+
+        </section>
+
+
+
+
+    </div>
+
+
+
+</main>
+
+<footer>
+
+    <hr>
+
+
+    <nav>
+
+
+
+        <div>
+
+
+            <label for="risorse" (click)="checked = !checked">
+                Risorse
+
+                <i class="fas fa-chevron-down arrow" [class.open]="checked"></i>
+
+            </label>
+
+        </div>
+
+
+
+
+
+        <ul [class.open]="checked" [class.close]="!checked">
+
+            <li>Gift card</li>
+
+            <li>Trova un negozio</li>
+
+            <li>Nike Journal</li>
+
+            <li>Diventa member</li>
+
+            <li>Sconto studenti</li>
+        </ul>
+
+        <hr>
+
+
+
+
+
+        <div>
+
+
+            <label for="assistenza" (click)="checkedAssistenza = !checkedAssistenza">
+                Assistenza
+
+                <i class="fas fa-chevron-down arrow" [class.open]="checkedAssistenza"></i>
+            </label>
+
+        </div>
+
+        <ul [class.open]="checkedAssistenza" [class.close]="!checkedAssistenza">
+
+            <li>Assistenza</li>
+
+            <li>Stato ordine</li>
+
+            <li>Spedizione consegna</li>
+
+            <li>Resi</li>
+
+            <li>Opzioni pagamento</li>
+
+            <li>Contattaci</li>
+
+            <li>Recensioni</li>
+
+            <li>Assistenza Codici promozionali Nike</li>
+
+
+        </ul>
+
+        <hr>
+
+        <div>
+
+
+            <label for="azienda" (click)="checkedAzienda = !checkedAzienda">
+                Azienda
+                <i class="fas fa-chevron-down arrow" [class.open]="checkedAzienda"></i>
+            </label>
+
+        </div>
+
+
+        <ul [class.open]="checkedAzienda" [class.close]="!checkedAzienda">
+
+            <li>Informazioni su Nike</li>
+
+            <li>News</li>
+
+            <li>Lavora con noi</li>
+
+            <li>Sostenibilità</li>
+
+            <li>Accessibilità</li>
+
+            <li>Obiettivo</li>
+
+            <li>Segnala un problema</li>
+
+
+        </ul>
+    </nav>
+
+    <hr>
+
+
+    <div><i class="fas fa-globe lingua"></i>Italia</div>
+
+
+    <hr>
+
+    <p>2025 Nike tutti i diritti riseravti</p>
+
+    <nav>
+
+        <ul class="static">
+
+            <li>Guide <i class="fas fa-chevron-down arrow"></i></li>
+            <li>Condizioni d'uso</li>
+            <li>Condizioni di vendita</li>
+            <li>Info legali e societarie</li>
+            <li>Informativa sulla privacy e sui cookie</li>
+            <li>Impostazioni relative a privacy e cookie</li>
+
+        </ul>
+
+    </nav>
+
+</footer>

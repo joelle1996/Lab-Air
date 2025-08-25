@@ -1,0 +1,145 @@
+<!-- ////////////  MODAL CON FILTRI PER PRODOTTI  //////////// -->
+
+<section id="modal" [ngClass]="{'show': filterActive,'hide':!filterActive}">
+
+
+
+    <div id="modal-content">
+
+        <div id="close"> <i (click)="closeFilter()" class="fas fa-times-circle"></i>
+
+
+        </div>
+
+        <h4>Filtro</h4>
+
+        <form>
+
+
+            <!-- ////////////  FILTRO PER PREZZO  //////////// -->
+            <div>
+                <p>Acquista per prezzo </p>
+
+
+                <div>
+                    <input [(ngModel)]="prezzoMin" (change)="changeChekbox($event)" class="form-check-input"
+                        type="checkbox" name="prezzomin" id="prezzoMin" value="prezzoMin">
+
+                    <label for="prezzomin">{{100 |currency:'EUR'}}-{{150 |currency:'EUR'}}</label>
+                </div>
+
+                <div>
+                    <input [(ngModel)]="prezzoMax" (change)="changeChekbox($event)" class="form-check-input"
+                        type="checkbox" name="prezzomax" id="prezzoMax" value="prezzoMax">
+
+                    <label for="prezzomax"><span>Superiore a {{150 |currency:'EUR'}}</span></label>
+                </div>
+
+            </div>
+
+
+
+            <hr>
+
+
+
+            <!-- ////////////  FILTRO PER COLORE  //////////// -->
+            <div id="Colore">
+                <p>Colore </p>
+
+                <div *ngFor="let c of colori">
+
+                    <input type="checkbox" (change)="changeChekbox($event)" [checked]="CheckboxColore.includes(c)"
+                        [id]="c" [name]="c" class="form-check-input" [value]="c">
+
+                    <label [for]="c">{{c}}</label>
+
+                </div>
+
+
+            </div>
+
+            <hr>
+
+
+            <!-- ////////////  FILTRO PER SPORT  //////////// -->
+
+            <div>
+                <p>Sport</p>
+
+                <div *ngFor="let c of categorie">
+
+                    <input type="checkbox" (change)="changeChekbox($event)" [checked]="CheckboxCategoria.includes(c)"
+                        [id]="c" [name]="c" class="form-check-input" [value]="c">
+
+                    <label [for]="c">{{c}}</label>
+
+                </div>
+
+
+
+                <hr>
+
+            </div>
+
+
+
+
+
+        </form>
+
+
+
+
+    </div>
+</section>
+
+
+<!-- ////////////  TUTTI I PRODOTTI  //////////// -->
+
+<section id="container">
+
+
+    <i (click)="filterOn()" class="fas fa-filter"></i>
+
+
+
+
+    <h3 *ngIf="Prodotti.length >0">Tutte le scarpe ({{Prodotti.length}})</h3>
+
+    <!-- <h3 *ngIf="Prodotti.length > 0">Scarpe ({{Prodotti.length}})</h3> -->
+
+    <h3 *ngIf="Prodotti.length==0">Nessun risultato</h3>
+
+
+
+
+    <!-- ////////////  CICLO FOR   //////////// -->
+    <nav>
+
+        <ul *ngFor="let p of Prodotti">
+
+            <li>
+                <div [routerLink]="['Dettaglio',p.id]"><img [src]="p.immagine" alt=""></div>
+
+            </li>
+
+            <li [routerLink]="['Dettaglio',p.id]"> {{p.nome}}</li>
+
+            <li>{{p.categoria}}</li>
+
+            <li>colori:{{p.colori_disponibili.length}}</li>
+
+            <li>{{p.prezzo| currency: 'EUR'}}</li>
+
+
+
+
+
+
+        </ul>
+
+
+
+    </nav>
+</section>

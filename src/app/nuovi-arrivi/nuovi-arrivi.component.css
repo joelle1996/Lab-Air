@@ -1,0 +1,164 @@
+section {
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+h3 {
+    margin: 30px 10px;
+
+}
+
+
+img {
+    width: 100%;
+    object-fit: cover;
+    height: 12vh;
+
+}
+
+ul {
+    width: 50%;
+    display: inline-block;
+    vertical-align: top;
+    padding: 10px;
+    margin-bottom: 20px !important;
+}
+
+
+li {
+
+    padding: 0px 5px;
+
+
+}
+
+ul li:nth-child(2) {
+    font-size: 0.8em;
+
+}
+
+
+
+ul li:nth-child(3) {
+    font-size: 0.9em;
+    color: rgb(187, 187, 187);
+
+
+
+}
+
+ul li:nth-child(4) {
+    font-size: 0.8em;
+
+}
+
+
+
+
+
+
+
+
+
+@media screen and (min-width:450px) {
+
+
+    img {
+        height: 20vh;
+
+    }
+
+    ul li:nth-child(2) {
+        font-size: 1em;
+
+    }
+
+
+
+    ul li:nth-child(3),
+    ul li:nth-child(4) {
+        font-size: 0.9em;
+
+
+
+
+    }
+
+
+
+}
+
+@media screen and (min-width:600px) {
+
+
+    img {
+        height: 18vh;
+    }
+
+    nav ul {
+
+        width: 33%;
+
+    }
+
+    h3 {
+        font-size: 1.5em;
+        margin: 50px 10px;
+    }
+
+
+}
+
+@media screen and (min-width:800px) {
+
+
+    img {
+        height: 25vh;
+    }
+
+
+
+}
+
+@media screen and (min-width:1000px) {
+
+
+    img {
+        height: 32vh;
+    }
+
+    ul li:nth-child(2) {
+        font-size: 1.2em;
+
+    }
+
+
+
+    ul li:nth-child(3),
+    ul li:nth-child(4) {
+        font-size: 1em;
+
+
+
+
+    }
+
+
+
+}
+
+@media screen and (min-width:1300px) {
+
+
+    img {
+        height: 40vh;
+    }
+
+    h3 {
+        font-size: 2em;
+        margin: 70px 10px;
+    }
+
+
+
+}

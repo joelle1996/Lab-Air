@@ -1,0 +1,236 @@
+/*/////////   COLORI //////////// */
+.active {
+    background-color: rgb(214, 214, 214);
+    color: black;
+}
+
+
+button:hover {
+    background-color: rgb(200, 197, 197);
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+
+
+
+
+/*/////////   REGOLE BASE   //////////// */
+i {
+    cursor: pointer;
+    font-size: 0.7em !important;
+    padding: 5px;
+    margin-left: 2px;
+}
+
+i:hover {
+    background-color: rgb(223, 223, 223);
+    border-radius: 30px;
+    padding: 5px;
+    transition: 0.5s;
+}
+
+ul {
+    list-style: none;
+    margin: 5px;
+    padding: 0;
+    font-size: 0.7em;
+    font-weight: bold;
+}
+
+ul li {
+    display: inline-block;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+
+/*/////////  STILI PRIMO MENU DI NAVIGAZIONE   //////////// */
+
+header>div:first-of-type {
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(243, 243, 243);
+    padding: 0.3em
+}
+
+
+
+header>div:last-of-type {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5em;
+}
+
+
+header>div:first-of-type ul li:not(header>nav:last-of-type,
+
+    header>div:first-of-type ul li:last-of-type)::after {
+
+    content: "|";
+    margin-left: 5px;
+}
+
+
+
+
+/*/////////   POSIZIONAMENTO LOGHI   //////////// */
+
+span {
+    background-image: url(/img/loghisprite.png);
+    display: inline-block;
+    margin: 0px 5px;
+}
+
+
+span:first-of-type {
+    width: 20px;
+    height: 20px;
+    background-size: 40px;
+
+}
+
+span:last-of-type {
+    width: 20px;
+    height: 20px;
+    background-size: 40px;
+    background-position: 20px;
+}
+
+#nikeLogo {
+    background-image: url(/img/nikelogo.png);
+    background-size: 20px;
+}
+
+
+
+/*/////////  STILI BARRA DI RICERCA E BOTTONE PER AVVIARE LA RICERCA   //////////// */
+
+
+#SearchAndIcons {
+    width: 80%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+
+}
+
+form {
+    min-width: 80px;
+    max-width: 500px;
+    display: flex;
+    align-items: center;
+    width: 50%;
+
+}
+
+input {
+    padding: 5px;
+    border: none;
+    background-color: rgb(237, 232, 232);
+    text-indent: 5px;
+    font-size: 0.5em !important;
+    border-radius: 16px;
+    width: 100%;
+}
+
+
+
+input[type="search"]:focus {
+
+    outline: none
+}
+
+
+
+button {
+    margin-right: 5px;
+    border-radius: 10px;
+    background-color: rgb(235, 235, 235);
+    color: rgb(182, 182, 182);
+    cursor: pointer;
+    font-size: 0.5em !important;
+    padding: 5px;
+    border: none;
+
+}
+
+
+
+/*/////////   STILE SECONDO MENU NAVIGAZIONE  //////////// */
+
+
+header>nav:last-of-type ul {
+    margin: 0;
+    text-align: center;
+    background-color: black;
+    color: white;
+    padding: 0.4em !important;
+    font-size: 0.8em;
+
+}
+
+header>nav:last-of-type ul li {
+
+    margin-right: 15px;
+}
+
+
+/*/////////////////    MEDIA QUERIES    //////////// */
+
+
+
+@media screen and (min-width:400px) {
+
+    header {
+        font-size: 1.3em;
+    }
+
+
+    span:first-of-type {
+        width: 25px;
+        height: 25px;
+        background-size: 50px;
+    }
+
+    span:last-of-type {
+        width: 25px;
+        height: 25px;
+        background-size: 50px;
+        background-position: 25px;
+    }
+
+    #nikeLogo {
+        background-image: url(/img/nikelogo.png);
+        background-size: 25px;
+    }
+
+}
+
+@media screen and (min-width:900px) {
+
+
+    header {
+        font-size: 1.8em;
+    }
+
+
+    header nav:first-of-type ul li {
+        padding: 0.2em;
+    }
+
+
+    i {
+        font-size: 0.9em;
+        margin: 0px 10px;
+    }
+
+
+    input {
+        height: 35px;
+    }
+}

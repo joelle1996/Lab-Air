@@ -1,0 +1,265 @@
+/* ////////  REGOLE PRINCIPALI //////// */
+
+i:not(form i) {
+    text-align: end;
+    display: block;
+    cursor: pointer;
+}
+
+img {
+    width: 100%;
+    object-fit: cover;
+    height: 15vh;
+}
+
+h3 {
+
+    margin-left: 10px;
+    margin-bottom: 50px;
+    margin-top: 30px;
+}
+
+#container {
+    max-width: 1550px;
+    margin: 0 auto;
+}
+
+section:first-of-type {
+    width: 100%;
+}
+
+
+
+
+
+
+
+
+/* ///////////  MODAL ////////////// */
+
+#modal {
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 1s, transform 1s;
+    position: fixed;
+    z-index: 1;
+    background-color: rgb(236, 236, 236);
+    height: 100%;
+    border-radius: 8px;
+    top: 0;
+}
+
+#modal-content form {
+    margin-top: 30px;
+}
+
+#modal-content #close {
+    padding: 10px;
+
+    display: block;
+    text-align: end;
+
+}
+
+
+
+.CascataFiltro {
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 1s, transform 1s;
+}
+
+#modal.show,
+.CascataFiltro.show {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#modal.hide,
+.CascataFiltro.hide {
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 1s, transform 1s
+}
+
+/* ////// CHECKBOX ALL'INTERNO DEL MODAL ///////////// */
+
+form input {
+    margin: 5px;
+}
+
+
+form input:checked {
+    background-color: #080808;
+    color: white;
+
+}
+
+form p {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8em;
+    align-items: center;
+}
+
+form p i {
+    margin-right: 15px;
+}
+
+
+/*///////////// STILE PRODOTTO /////////////  */
+
+ul {
+    margin-bottom: 20px !important;
+    display: inline-block;
+    width: 50%;
+    vertical-align: top;
+}
+
+
+li {
+
+    padding: 0px 5px;
+
+
+}
+
+ul li:nth-child(2) {
+    font-size: 0.8em;
+
+}
+
+
+
+ul li:nth-child(3) {
+    font-size: 0.9em;
+    color: rgb(163, 162, 162);
+
+}
+
+ul li:nth-child(4) {
+    font-size: 0.8em;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (min-width:450px) {
+
+
+    img {
+        height: 20vh;
+
+    }
+
+    ul li:nth-child(2) {
+        font-size: 1em;
+
+    }
+
+
+
+    ul li:nth-child(3),
+    ul li:nth-child(4) {
+        font-size: 0.9em;
+
+
+
+
+    }
+
+
+
+}
+
+@media screen and (min-width:600px) {
+
+
+    img {
+        height: 18vh;
+    }
+
+    nav ul {
+
+        width: 33%;
+
+    }
+
+
+
+}
+
+@media screen and (min-width:800px) {
+
+
+    img {
+        height: 25vh;
+    }
+
+    h3 {
+        margin: 50px 10px;
+        font-size: 1.5em;
+    }
+
+
+
+}
+
+@media screen and (min-width:1000px) {
+
+
+    img {
+        height: 32vh;
+    }
+
+    ul li:nth-child(2) {
+        font-size: 1.2em;
+
+    }
+
+
+
+    ul li:nth-child(3),
+    ul li:nth-child(4) {
+        font-size: 1em;
+
+
+
+
+    }
+
+
+
+}
+
+@media screen and (min-width:1300px) {
+
+
+    img {
+        height: 40vh;
+    }
+
+
+    h3 {
+        text-align: center;
+        margin: 70px 10px;
+        font-size: 2em;
+    }
+
+
+
+
+}
