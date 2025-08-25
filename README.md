@@ -1,27 +1,20 @@
-# LabAir
+Nike E-commerce Clone – Angular & JSON Server
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.2.
+Questo progetto è stato realizzato al termine del mio percorso formativo come Front-End Developer. Si tratta di una replica semplificata del sito e-commerce Nike, sviluppata con Angular e JSON Server per simulare un backend REST.
 
-## Development server
+Le funzionalità principali includono:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Filtro prodotti per colore, prezzo e categoria (es. basket, running)
 
-## Code scaffolding
+Ricerca avanzata tramite barra di ricerca
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Navigazione tra Nuovi arrivi e Best seller con prodotti già filtrati
 
-## Build
+Possibilità di aggiungere i prodotti al carrello e simulare un acquisto
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Navigazione tra le sezioni tramite routing Angular
 
-## Running unit tests
+L’interfaccia è responsive e progettata per offrire un'esperienza utente semplice.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
