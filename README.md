@@ -1,8 +1,7 @@
 Questo progetto è stato realizzato con Angular e JSON Server come parte conclusiva del mio percorso formativo in sviluppo front-end. Si tratta di una replica parziale del sito e-commerce Nike, con alcune delle sue funzionalità principali:
 
-Visualizzazione dei prodotti (scarpe) con possibilità di filtrare per colore, prezzo e categoria (es. running, basket, ecc.)
+Visualizzazione dei prodotti,Navigazione tramite homepage con collegamento alla sezione "Tutti i prodotti" cliccando sul bottone 'Acquista ora',con possibilità di filtrare i prodotti(Scarpe) per prezzo,colore e tipologia.
 
-Navigazione tramite homepage con collegamento alla sezione "Tutti i prodotti" cliccando sul bottone 'Acquista ora',con possibilità di filtrare i prodotti per prezzo,colore e tipologia.
 
 Barra di ricerca per trovare rapidamente i prodotti
 
