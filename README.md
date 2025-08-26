@@ -2,7 +2,7 @@ Questo progetto è stato realizzato con Angular e JSON Server come parte conclus
 
 Visualizzazione dei prodotti (scarpe) con possibilità di filtrare per colore, prezzo e categoria (es. running, basket, ecc.)
 
-Navigazione tramite homepage con collegamento alla sezione "Tutti i prodotti"
+Navigazione tramite homepage con collegamento alla sezione "Tutti i prodotti" cliccando sul bottone 'Acquista ora',con possibilità di filtrare i prodotti per prezzo,colore e tipologia.
 
 Barra di ricerca per trovare rapidamente i prodotti
 
